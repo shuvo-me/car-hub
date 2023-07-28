@@ -2,6 +2,7 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import { CardCardProps, carInterface } from "@/types";
 import { getCars } from "@/utils";
 import Image from "next/image";
 
@@ -26,7 +27,7 @@ export default async function Home() {
         {cars?.length ? (
           <section>
             <div className="home__cars-wrapper">
-              {cars?.map((car: any) => (
+              {cars?.map((car: carInterface) => (
                 <CarCard car={car} />
               ))}
             </div>
