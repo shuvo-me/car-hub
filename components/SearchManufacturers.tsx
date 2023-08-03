@@ -19,10 +19,6 @@ const SearchManufacturers: FC<ManufacturerProps> = ({
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
 
-  useEffect(() => {
-    console.log({ manufacturer });
-  }, [manufacturer]);
-
   return (
     <div className="search-manufacturer">
       <Combobox value={manufacturer} onChange={setManufacturer}>

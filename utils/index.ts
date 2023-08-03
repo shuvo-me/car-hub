@@ -3,8 +3,8 @@ import { FilterInterface, carInterface } from "@/types";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "35d9887fd6mshc2d5dffc8ea660cp1ebf9bjsnd818e03b049f",
-    "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
+    "X-RapidAPI-Host": process.env.NEXT_PUBLIC_RAPID_API_HOST || "",
   },
 };
 

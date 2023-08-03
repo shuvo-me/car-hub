@@ -35,7 +35,7 @@ export default async function Home({ searchParams }: HomePropTypes) {
           <section>
             <div className="home__cars-wrapper">
               {cars?.map((car: carInterface) => (
-                <CarCard car={car} key={car.combination_mpg} />
+                <CarCard car={car} key={Math.random()} />
               ))}
             </div>
             <ShowMore

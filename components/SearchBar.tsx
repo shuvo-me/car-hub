@@ -46,7 +46,7 @@ const SearchBar = () => {
     }
 
     const newPathName = `${window.location.pathname}?${searcParams.toString()}`;
-    router.push(newPathName);
+    router.push(newPathName, { scroll: false });
   };
   return (
     <form className="searchbar" onSubmit={handleSubmit}>

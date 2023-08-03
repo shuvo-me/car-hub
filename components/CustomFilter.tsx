@@ -8,19 +8,16 @@ import React, { FC, Fragment, useState } from "react";
 
 const CustomFilter: FC<CustomFilterPropsTypes> = ({ options, title }) => {
   const [selected, setSelected] = useState(options[0]);
-  console.log({ selected });
   const router = useRouter();
   const updateParams = (e: { title: string; value: string }) => {
-    console.log({ e });
     const route = updateSearchParams(title, e.value.toLowerCase());
-    router.push(route);
+    router.push(route, { scroll: false });
   };
   return (
     <div className=" w-fit">
       <Listbox
         value={selected}
         onChange={(e) => {
-          console.log({ e });
           setSelected(e);
           updateParams(e);
         }}
