@@ -1,5 +1,6 @@
 "use client";
 import { CarDetailsProps } from "@/types";
+import { generateCarImageUrl } from "@/utils";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { FC, Fragment } from "react";
@@ -48,7 +49,7 @@ const CarDetails: FC<CarDetailsProps> = ({ car, closeModal, isOpen }) => {
                   <div className="flex-1 flex flex-col gap-3">
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
-                        src={"/hero.png"}
+                        src={generateCarImageUrl(car)}
                         priority
                         fill
                         className="object-contain"
@@ -58,7 +59,7 @@ const CarDetails: FC<CarDetailsProps> = ({ car, closeModal, isOpen }) => {
                     <div className="flex gap-3">
                       <div className="flex-1 relative ronded-lg bg-primary-blue-100 w-full h-24">
                         <Image
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car, "29")}
                           priority
                           fill
                           className="object-contain"
@@ -67,7 +68,7 @@ const CarDetails: FC<CarDetailsProps> = ({ car, closeModal, isOpen }) => {
                       </div>
                       <div className="flex-1 relative ronded-lg bg-primary-blue-100 w-full h-24">
                         <Image
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car, "33")}
                           priority
                           fill
                           className="object-contain"
@@ -76,13 +77,33 @@ const CarDetails: FC<CarDetailsProps> = ({ car, closeModal, isOpen }) => {
                       </div>
                       <div className="flex-1 relative ronded-lg bg-primary-blue-100 w-full h-24">
                         <Image
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car, "13")}
                           priority
                           fill
                           className="object-contain"
                           alt="car"
                         />
                       </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col flex-1 gap-2">
+                    <h2 className="font-semibold text-xl capitalize">
+                      {car.make} {car.model}
+                    </h2>
+                    <div className="mt-3 flex flex-wrap gap-4">
+                      {Object.entries(car).map(([key, value]) => (
+                        <div
+                          className="flex justify-between gap-5 text-right w-full"
+                          key={key}
+                        >
+                          <h4 className="text-grey capitalize">
+                            {key?.split("_").join(" ")}
+                          </h4>
+                          <p className="text-black-100 font-semibold">
+                            {value}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </Dialog.Panel>
